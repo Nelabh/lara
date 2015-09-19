@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'PagesController@home');
+Route::get('/', array('as'=>'home','uses'=>'PagesController@home'));
 
-Route::get('/login', 'PagesController@login');
-Route::get('/signup', 'PagesController@signup');
+Route::get('/login', array('as'=>'login','uses'=>'PagesController@login'));
+Route::get('/signup',array('as'=>'signup','uses'=> 'PagesController@signup'));
