@@ -12,6 +12,5 @@
 */
 
 Route::get('/', array('as'=>'home','uses'=>'PagesController@home'));
-
 Route::get('/login', array('as'=>'login','uses'=>'PagesController@login'));
 Route::get('/signup',array('as'=>'signup','uses'=> 'PagesController@signup'));
