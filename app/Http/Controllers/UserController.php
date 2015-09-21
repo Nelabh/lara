@@ -11,7 +11,19 @@ class UserController extends BaseController {
 	
 	public function  login()
 	{
-		return 'loggedin';
+		$user=array(
+			'username'=>Input::get('email'),
+			'password'=>Input::get('password')
+			);
+
+		if(Auth::attempt($user))
+		{
+			return Redirect::to_route('home')->with('message','Successfully Logged In!');
+		}
+		else{
+			return Redirect::to_route('login')->with('message','Your email/password combination is incorrect!')->with_input();
+
+		}
 	}
 	public function  signup()
 	{

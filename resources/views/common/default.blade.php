@@ -44,10 +44,16 @@
                                 <!-- Collect the nav links, forms, and other content for toggling -->
                                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                     <ul class="nav navbar-nav navbar-right">
+                                         @if(!Auth::check())
                                         <li class="active"><a href="{{URL::asset('/')}}">Home</a></li>
-                                        <li><a href="{{URL::asset('#')}}">About</a></li>
+                                        <li><a href="{{URL::asset('#')}}">Rules</a></li>
+                                        <li><a href="{{URL::asset('/signup')}}">SignUp</a></li>
+                                        <li><a href="{{URL::asset('/login')}}">Login</a></li>
+                                       @else
                                         <li><a href="{{URL::asset('#')}}">Dashboard</a></li>
-                                        <li><a href="{{URL::asset('#')}}">Leaderbaord</a></li>
+                                        <li><a href="{{URL::asset('#')}}">Rules</a></li>
+                                        @endif
+                                        <li><a href="{{URL::asset('#')}}">Leaderboard</a></li>
                                         <li><a href="{{URL::asset('#')}}">Forum</a></li>
                                     </ul>
                                 </div><!-- /.navbar-collapse -->
