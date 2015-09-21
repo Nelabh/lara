@@ -96,55 +96,25 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-header{
-    background-color: #ecf0f1;
-}
-
-.content{
-    overflow-y: hidden;
-overflow-x: hidden;
-    background-color: #ecf0f1;
-    height: 534px
-}
-.content h1, h4{
-    text-align: center;
-    font-family: 'Arvo', sans-serif;
-}
-.content h1{
-    text-align: center;
-    font-size: 2.5em;
-    padding-left: 8px;
-    padding-right: 7px;
-    padding-top: 1%;
-    font-weight: 700;
-   margin-bottom: 0px;
-}
-.content h4{
-    margin-top: 2px;
-    font-family: 'Arvo', sans-serif;
-    
-}
-ul{
-    font-family: 'Arvo', sans-serif;
-}
-
-.image img{
-    width: auto;
-    height: 250px;
-   display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 35px;
-}
-
 
 /*sign up page css starts===============================================================================================================*/
 
+.background{
+    background-image:url(../img/bg.jpg);
+     background-repeat:no-repeat;
+    background-size:contain;
+    background-position: center;
+    height: 500px;
+    max-width: 100%;
+}
+
+
+
+
+
 .content{
-    overflow-y: hidden;
-`   overflow-x: hidden;
-    background-color: #ecf0f1;
-    /*height: 1200px*/
+overflow-x: hidden;
+
 }
 
 .signup{
@@ -152,14 +122,16 @@ ul{
 }
 
 .signup p{
+    font-weight: bold;
+    font-size: 1.1em;
     text-align: center;
     font-family: 'Arvo', sans-serif;
-    padding-top: 10px;
-    margin-bottom: 20px;
+    padding-top: 5px;
+    margin-bottom: 10px;
 }
 
 .signup input{
-    color: #648097;
+    color: #567483;
     padding: 12px;
     display: block;
     margin-left: auto;
@@ -168,7 +140,7 @@ ul{
     margin-bottom: 15px;
     border: none;
     background-color: transparent;
-    border-bottom: 2px solid #24292c;
+    border-bottom: 1px dashed #24292c;
 }
 
  .signup-form input[type="text"]:focus{
@@ -181,25 +153,25 @@ ul{
 
     }
 ::-webkit-input-placeholder {
-   color: #648097;
+   color: #567483;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: #648097;  
+   color: #567483;  
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: #648097;  
+   color: #567483;  
 }
 
 :-ms-input-placeholder {  
-   color: #648097;  
+   color: #567483;  
 }
 
 .signup-form input[type=checkbox]:checked + label, .signup-form input[type=checkbox]:checked + label {
         transition: background-color .3s, ease-in;
         text-align: center;
-        background-color:#648097;
+        background-color:#567483;
         color:#fffdf9;    
         border:none;   
     border: 2px solid #ecf0f1;
@@ -231,7 +203,265 @@ ul{
 
     .signup-form input[type="checkbox"] {
         display: none;
+        
     }        
+@media(min-width:960px){
+label{
+        width: 3%;
+    }
+    .check {
+    
+    }
+    .signup-form button{
+        margin-left: auto;
+        margin-right: auto;
+    
+    }
+    
+}
+/*index page================================================================================================================================================================================================================================*/
+
+header{
+    background-color: #ecf0f1;
+}
+
+.content{
+    overflow-y: hidden;
+overflow-x: hidden;
+
+}
+.content h1, h4{
+    text-align: center;
+    font-family: 'Arvo', sans-serif;
+}
+.content h1{
+    text-align: center;
+    font-size: 2.5em;
+    padding-left: 8px;
+    padding-right: 7px;
+    padding-top: 10%;
+    font-weight: 700;
+   margin-bottom: 0px;
+}
+.content h4{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-family: 'Arvo', sans-serif;
+    
+}
+ul{
+    font-family: 'Arvo', sans-serif;
+}
+
+.image img{
+    width: auto;
+    height: 250px;
+   display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 35px;
+}
+
+@media(min-width:960px){
+    
+    .content h1{
+        font-size: 5em;
+        padding-bottom: 0px;
+    }
+        .content h4{    
+            padding-top: 0px;
+            font-size: 22px;
+            font-weight: 300;
+        }
+    
+    .content h1{
+        padding-top: 0px;
+    }
+
+    }
+
+/*=======================================dashboard==========================================================================================*/
+
+.aside{
+    background-color: white;
+}
+
+.circle {
+margin-top: 20px;
+margin-left: auto;
+margin-right: auto;
+width:120px;
+height:120px;
+border-radius:50%;
+font-size:4em;
+font-family: 'Arvo',sans-serif;
+border: 1.5px dashed #93a9b4;
+line-height:120px;
+text-align:center;
+color: #414141;
+font-weight: 700;
+}
+
+.aside h1{
+    padding-top: 5px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    font-family: 'Arvo',sans-serif;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 700;
+    color:#567483;
+}
+
+.aside h2{
+    color: #414141;
+    margin: 0px;
+    text-align: center;
+    font-family: 'Arvo',sans-serif;
+    font-size: 1.2em;
+    font-weight: 700;
+    padding-top: 2px;
+    border-bottom: 1.5px dashed #93a9b4; 
+        padding-bottom: 25px;
+}
+.battleground h1{
+    margin-top: 30px;
+    color: #414141;
+    text-align: center;
+    font-family: 'Arvo',sans-serif;
+    font-weight: 700;
+}
+.battleground p{
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 8px;
+    padding-right: 8px;
+    text-align: center;
+    font-family: 'Arvo',sans-serif;
+    padding-bottom: 30px;
+}
+
+.battleground input[type="text"]{
+    padding: 12px 12px 12px 15px;
+    color: #567483;
+}
+
+.battleground input{
+    margin-bottom: 5px;
+    width:80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.battleground input[type="text"]:focus{
+        outline:none;
+
+    }
+
+.heading h1,h5{
+    display: none;
+}
+
+/*
+
+footer{
+    background-color: #ecf0f1;
+    height: 80px;
+    margin-top: 50px;
+}
+footer a{
+    color: black;
+    font-family: 'Arvo',sans-serif;
+    font-weight: 700;
+    text-align: center;
+}
+*/
+
+
+
+@media(min-width:960px){
+    
+    .aside{
+        margin-top:150px;
+        border-right: 1px dashed #414141
+    }
+    .heading h1{
+        margin-bottom: 0px;
+        text-align: center;
+        font-family: 'Arvo',sans-serif;
+        font-weight: 700;    
+    }
+    .heading h5{
+        text-align: center;
+        font-family: 'Arvo',sans-serif;
+        margin-top: 1px;
+        font-weight: 300;
+        font-size: 1em;
+        margin-bottom: 20px;
+        
+    }
+    
+    .aside h2{
+        border: none;
+    }
+    
+    .battleground h1{
+        padding-top: 55px;
+        padding-bottom: 10px;
+    }
+    .battleground input{
+        width: 30%;
+    }
+    .battleground button{
+        display: block;
+        
+    }
+
+}
+
+
+/*==================================================================================================Leaderboard==========================================================================================================*/
+
+
+.lead h1{
+    font-family: 'Arvo', sans-serif;
+    text-align: center;
+    font-size: 30px;
+    
+}
+
+.background{
+    color:#414141;
+}
+
+
+@media(min-width:960px){
+    .background section{
+        display: none;
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
