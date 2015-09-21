@@ -1,6 +1,6 @@
-<?php
+<?php 
 namespace App\Models;
-
+use Eloquent;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -8,17 +8,11 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
-class User extends Basemodel
-{
-
-public static $rules=array(
-'fname'=>'required'|'alpha_num',
-'lname'=>'required'|'alpha_num',
-'year'=>'required',
-'email'=>'required|unique:users',
-'password'=>'required|min:4|confirmed',
-'password_confirmation'=>'required|min:4'
-);
+class Basemodel extends Eloquent {
+	public static function validate($data)
+	{
+		return Validator::make($data,static::$rules);
+	}
 
 }
 ?>

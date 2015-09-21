@@ -12,12 +12,17 @@
                     <h4>One board, Two roads !</h4>
                 </div>
                 <div class="col-md-12">
-                    <form class="signup">
-                        <span class="signup-form "> <p>Email-Id</p><input type="text" placeholder="hello@gmail.com"></span>
-                        <span class="signup-form "> <p>Password</p><input type="password" placeholder="*******"></span> 
-                  <div class="col-md-6"><button type= "submit" class="button button--wayra button--border-thick button--text-upper button--size-s">Login</button>   </div>  
+                    {!!Form::open(array('url'=>'login', 'class'=>'signup' ))!!}
+                    
+                        
+                        <span class="signup-form "> <p>Email-Id</p>{!! Form::email('email', Input::old('email'), 
+        array('required',  
+              'placeholder'=>'hello@gmail.com')) !!}</span>
+                        <span class="signup-form "> <p>Password</p>{!! Form::password('pass',array('required','placeholder'=>'*******')) !!}</span> 
+                  <div class="col-md-6">{!! Form::button('Login', 
+      array('class'=>'button button--wayra button--border-thick button--text-upper button--size-s','type'=>'submit')) !!}</div>  
 
-                    </form>
+                    {!! Form::close() !!}
                 
                 </div>
 				

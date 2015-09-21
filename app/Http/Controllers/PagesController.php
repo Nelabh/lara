@@ -1,7 +1,6 @@
 <?php 
 namespace App\Http\Controllers;
 use Views;
-
 use Illuminate\Routing\Controller as BaseController;
 
 
@@ -20,5 +19,6 @@ class PagesController extends BaseController {
 	{
 		return \View::make('login');
 	}
+	
 } 
 ?>

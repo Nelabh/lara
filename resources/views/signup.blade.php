@@ -30,24 +30,45 @@ function SetSel(elem)
                 <div class="col-md-12">
                     <h4>One board, Two roads !</h4>
                 </div>
+                @if($errors->has())
+                <p>Following Errors Occured:</p>
+                <ul id="form-errors">
+                  {{$errors->first('fname','<li>:message</li>')}}
+                  {{$errors->first('lname','<li>:message</li>')}}
+                  {{$errors->first('year','<li>:message</li>')}}
+                  {{$errors->first('email','<li>:message</li>')}}
+                  {{$errors->first('password','<li>:message</li>')}}
+                  {{$errors->first('password_confirmation','<li>:message</li>')}}
+                </ul>
+                @endif
+
                 <div class="col-md-12">
-                    <form class="signup">
-                        <span class="signup-form "> <p>First Name</p><input type="text" placeholder="Eg: Spartan"></span> 
-                        <span class="signup-form "> <p>Last Name</p><input type="text" placeholder="Eg: Sparta"></span>
-                        <span class="signup-form "> <p>Email-Id</p><input type="text" placeholder="hello@gmail.com"></span>
-                        <span class="signup-form "> <p>Password</p><input type="password" placeholder="*******"></span> 
-                        <span class="signup-form"> <p>Confirm Password</p><input type="password" placeholder="*******"></span>
+                    {!!Form::open(array('url'=>'signup', 'class'=>'signup' ))!!}
+                    {!!Form::token()!!}
+                    
+                        <span class="signup-form "> <p>First Name</p>{!! Form::text('fname', Input::old('fname'), 
+        array('required',  
+              'placeholder'=>'Eg: Spartan')) !!}</span> 
+                        <span class="signup-form "> <p>Last Name</p>{!! Form::text('lname', Input::old('lname'), 
+        array('required',  
+              'placeholder'=>'Eg: Sparta')) !!}</span>
+                        <span class="signup-form "> <p>Email-Id</p>{!! Form::email('email', Input::old('email'), 
+        array('required',  
+              'placeholder'=>'hello@gmail.com')) !!}</span>
+                        <span class="signup-form "> <p>Password</p>{!! Form::password('password',array('required','placeholder'=>'*******')) !!}</span> 
+                        <span class="signup-form"> <p>Confirm Password</p>{!! Form::password('password_confirmation',array('required','placeholder'=>'*******')) !!}</span>
                         <span class="signup-form"> <p>Year</p>
-                    <input type="checkbox" id="1" class="chkclass" value="1" onclick="SetSel(this);">
+                          {!!Form::checkbox('year', 1, null, ['class' => 'chkclass','onclick'=>'SetSel(this)','id'=>'1'])!!}
                     <label for="1">1</label>
-                    <input type="checkbox" id="2" class="chkclass" value="2" onclick="SetSel(this);">
+                     {!!Form::checkbox('year', 2, null, ['class' => 'chkclass','onclick'=>'SetSel(this)','id'=>'2'])!!}
                     <label for="2">2</label>
-                    <input type="checkbox" id="3" class="chkclass" value="3" onclick="SetSel(this);">
+                     {!!Form::checkbox('year', 3, null, ['class' => 'chkclass','onclick'=>'SetSel(this)','id'=>'3'])!!}
                     <label for="3">3</label>  
-                    <input type="checkbox" id="4" class="chkclass" value="4" onclick="SetSel(this);">
+                     {!!Form::checkbox('year', 4, null, ['class' => 'chkclass','onclick'=>'SetSel(this)','id'=>'4'])!!}
                     <label for="4">4</label>
                     </span>
-                    <div class="col-md-6"><button type= "submit" class="button button--wayra button--border-thick button--text-upper button--size-s">Sign Up</button>   </div>  
+                    <div class="col-md-6">{!! Form::button('Sign Up', 
+      array('class'=>'button button--wayra button--border-thick button--text-upper button--size-s','type'=>'submit')) !!}   </div>  
                     </form>
                 
                 </div>
