@@ -142,9 +142,9 @@ ul{
 
 .content{
     overflow-y: hidden;
-overflow-x: hidden;
+`   overflow-x: hidden;
     background-color: #ecf0f1;
-    height: 1200px
+    /*height: 1200px*/
 }
 
 .signup{

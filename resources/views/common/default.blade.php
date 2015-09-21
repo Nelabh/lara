@@ -60,56 +60,9 @@
         </header>
         
         @yield('content')
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <script src="{{URL::asset('https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')}}"></script>
         <script src="{{URL::asset('common/assets/js/vendor/jquery-1.11.1.min.js')}}"></script>
-        <script>window.jQuery || document.write("<script src='{{URL::asset('common/assets/js/vendor/jquery-1.10.2.min.js')}}'></script>")</script>
+        
         <script src="{{URL::asset('common/assets/js/bootstrap.js')}}"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
