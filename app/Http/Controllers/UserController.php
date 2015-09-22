@@ -19,7 +19,7 @@ class UserController extends BaseController {
 
 		if(\Auth::attempt($user))
 		{
-			return Redirect::to('/')->with('message','Successfully Logged In!');
+			return Redirect::to('dashboard')->with('message','Successfully Logged In!');
 		}
 		else{
 			return Redirect::to('login')->with('message','Your email/password combination is incorrect!')->withInput();;
@@ -39,7 +39,7 @@ class UserController extends BaseController {
 				'password'=>\Hash::make(Input::get('password'))
 
 				));
-			return Redirect::to('/')->with('message','Successfully Regisered!');
+			return Redirect::to('dashboard')->with('message','Successfully Registered! Now you are logged in!');
 		}	
 		else{
 			return Redirect::to('signup')->withErrors($validation->errors())->withInput();
