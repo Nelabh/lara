@@ -20,3 +20,4 @@ Route::get('signup',array('as'=>'signup','uses'=> 'PagesController@signup'));
 Route::post('login',array('before'=>'csrf','uses'=> 'UserController@login'));
 Route::post('signup',array('before'=>'csrf','uses'=> 'UserController@signup'));
 
+Route::get('leaderboard/{id}', array('as'=>'leaderboard', 'uses'=>'PagesController@leaderboard'));
