@@ -3,21 +3,57 @@ namespace App\Http\Controllers;
 use Views;
 use DB;
 use Illuminate\Routing\Controller as BaseController;
+use App\Models\User;
+use Input;
+use Illuminate\Validation\Validator;
+use Illuminate\Validation;
+use Illuminate\Support\Facades\Redirect;
 
 
 class PagesController extends BaseController {
 	public function home()
 	{
-		return \View::make('index');
+		if(\Auth::check())
+		{
+			return \View::make('dashboard');	
+		}
+	else{
+			return \View::make('index');
+		}
 	}
 	public function signup()
 	{
-		return \View::make('signup');
+		if(\Auth::check())
+		{
+			return Redirect::to('dashboard')->with('message','You need to log out first!');	
+		}
+	else{
+			return \View::make('signup');
+		}
+
 	}
 
 	public function login()
 	{
-		return \View::make('login');
+		if(\Auth::check())
+		{
+			return Redirect::to('dashboard')->with('message','You are already logged in!');	
+		}
+	else{
+			return \View::make('login');
+		}
+			}
+	public function dashboard()
+	{
+		if(!\Auth::check())
+		{
+			return Redirect::to('login')->with('message','You need to login first!'); 
+		}
+		else
+		{
+
+			return \View::make('dashboard');
+		}
 	}
 
 	public function leaderboard($id){
