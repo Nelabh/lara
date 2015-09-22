@@ -47,11 +47,11 @@
                                          @if(!Auth::check())
                                         <li class="active"><a href="{{URL::asset('/')}}">Home</a></li>
                                         <li><a href="{{URL::asset('#')}}">Rules</a></li>
-                                        <li><a href="{{URL::asset('/signup')}}">Sign Up</a></li>
-                                        <li><a href="{{URL::asset('/login')}}">Login</a></li>
+                                        <li><a href="{{URL::asset('signup')}}">Sign Up</a></li>
+                                        <li><a href="{{URL::asset('login')}}">Login</a></li>
                                        @else
                                         <li><a href="{{URL::asset('#')}}">Dashboard</a></li>                                   
-                                        <li><a href="{{URL::asset('#')}}">Log Out</a></li>
+                                        <li><a href="{{URL::asset('logout')}}">Log Out</a></li>
                                         <li><a href="{{URL::asset('#')}}">Rules</a></li>
                                         @endif
                                         <li><a href="{{URL::asset('#')}}">Leaderboard</a></li>

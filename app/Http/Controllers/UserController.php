@@ -39,10 +39,22 @@ class UserController extends BaseController {
 				'password'=>\Hash::make(Input::get('password'))
 
 				));
-			return Redirect::to('/')->with('message','Successfully Regisered');
+			return Redirect::to('/')->with('message','Successfully Regisered!');
 		}	
 		else{
 			return Redirect::to('signup')->withErrors($validation->errors())->withInput();
+		}
+	}
+	public function logout()
+	{
+		if(\Auth::check())
+		{
+			\Auth::logout();
+			return Redirect::to('/')->with('message','Successfully Logged Out!'); 
+		}
+		else
+		{
+			return Redirect::to('login')->with('message','You need to login first!'); 
 		}
 	}
 } 

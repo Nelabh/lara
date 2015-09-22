@@ -15,6 +15,7 @@
 Route::get('/', array('as'=>'home','uses'=>'PagesController@home'));
 Route::get('login', array('as'=>'login','uses'=>'PagesController@login'));
 Route::get('signup',array('as'=>'signup','uses'=> 'PagesController@signup'));
+Route::get('logout',array('as'=>'logout','uses'=> 'UserController@logout'));
 
 Route::post('log',array('before'=>'csrf','uses'=> 'UserController@login'));
 Route::post('sign',array('before'=>'csrf','uses'=> 'UserController@signup'));
