@@ -6,7 +6,7 @@ use Input;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Validation\Validator;
 use Illuminate\Validation;
-
+ 
 class UserController extends BaseController {
 	
 	public function  login()
@@ -16,7 +16,7 @@ class UserController extends BaseController {
 			'password'=>Input::get('password')
 			);
 
-		if(Auth::attempt($user))
+		if(\Auth::attempt($user))
 		{
 			return Redirect::to_route('home')->with('message','Successfully Logged In!');
 		}
