@@ -47,10 +47,11 @@
                                          @if(!Auth::check())
                                         <li class="active"><a href="{{URL::asset('/')}}">Home</a></li>
                                         <li><a href="{{URL::asset('#')}}">Rules</a></li>
-                                        <li><a href="{{URL::asset('/signup')}}">SignUp</a></li>
+                                        <li><a href="{{URL::asset('/signup')}}">Sign Up</a></li>
                                         <li><a href="{{URL::asset('/login')}}">Login</a></li>
                                        @else
-                                        <li><a href="{{URL::asset('#')}}">Dashboard</a></li>
+                                        <li><a href="{{URL::asset('#')}}">Dashboard</a></li>                                   
+                                        <li><a href="{{URL::asset('#')}}">Log Out</a></li>
                                         <li><a href="{{URL::asset('#')}}">Rules</a></li>
                                         @endif
                                         <li><a href="{{URL::asset('#')}}">Leaderboard</a></li>
@@ -64,7 +65,11 @@
                 </div>    
             </div>
         </header>
-        
+        <div id="message">
+            @if(Session::has('message'))
+            <p id="msg">{{Session::get('message')}}</p>
+            @endif
+        </div>
         @yield('content')
         <script src="{{URL::asset('https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')}}"></script>
         <script src="{{URL::asset('common/assets/js/vendor/jquery-1.11.1.min.js')}}"></script>

@@ -11,13 +11,12 @@
 |
 */
 
+
 Route::get('/', array('as'=>'home','uses'=>'PagesController@home'));
-
-
 Route::get('login', array('as'=>'login','uses'=>'PagesController@login'));
 Route::get('signup',array('as'=>'signup','uses'=> 'PagesController@signup'));
 
-Route::post('login',array('before'=>'csrf','uses'=> 'UserController@login'));
-Route::post('signup',array('before'=>'csrf','uses'=> 'UserController@signup'));
+Route::post('log',array('before'=>'csrf','uses'=> 'UserController@login'));
+Route::post('sign',array('before'=>'csrf','uses'=> 'UserController@signup'));
 
 Route::get('leaderboard/{id}', array('as'=>'leaderboard', 'uses'=>'PagesController@leaderboard'));

@@ -6,22 +6,23 @@ use Input;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Validation\Validator;
 use Illuminate\Validation;
+use Illuminate\Support\Facades\Redirect;
  
 class UserController extends BaseController {
-	
+	protected $fillable = array('fname','lname','year', 'email', 'password');       
 	public function  login()
 	{
 		$user=array(
-			'username'=>Input::get('email'),
+			'email'=>Input::get('email'),
 			'password'=>Input::get('password')
 			);
 
 		if(\Auth::attempt($user))
 		{
-			return Redirect::to_route('home')->with('message','Successfully Logged In!');
+			return Redirect::to('/')->with('message','Successfully Logged In!');
 		}
 		else{
-			return Redirect::to_route('login')->with('message','Your email/password combination is incorrect!')->with_input();
+			return Redirect::to('login')->with('message','Your email/password combination is incorrect!')->withInput();;
 
 		}
 	}
@@ -35,13 +36,13 @@ class UserController extends BaseController {
 				'lname'=>Input::get('lname'),	
 				'year'=>Input::get('year'),
 				'email'=>Input::get('email'),
-				'password'=>Hash::make(Input::get('password'))
+				'password'=>\Hash::make(Input::get('password'))
 
 				));
-			return Redirect::to_route('home')->with('message','Successfully Regisered');
+			return Redirect::to('/')->with('message','Successfully Regisered');
 		}	
 		else{
-			return Redirect::to_route('signup')->with_errors($validation)->with_input();
+			return Redirect::to('signup')->withErrors($validation->errors())->withInput();
 		}
 	}
 } 

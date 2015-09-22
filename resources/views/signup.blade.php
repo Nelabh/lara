@@ -43,7 +43,7 @@ function SetSel(elem)
                 @endif
 
                 <div class="col-md-12">
-                    {!!Form::open(array('url'=>'signup', 'class'=>'signup' ))!!}
+                    {!!Form::open(array('url'=>'sign', 'class'=>'signup' ))!!}
                     {!!Form::token()!!}
                     
                         <span class="signup-form "> <p>First Name</p>{!! Form::text('fname', Input::old('fname'), 
