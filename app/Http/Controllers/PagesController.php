@@ -51,28 +51,32 @@ class PagesController extends BaseController {
 		}
 		else
 		{
-
-			return \View::make('dashboard');
+			$data = array('user' =>['name' => 'Abhay','level'=>'2' ,'globalRank' => '1' , 'question' => 'something...']);
+			return \View::make('dashboard', $data);
 		}
+	}
+
+	public function answer($ans){
+
 	}
 
 	public function leaderboard($id){
 		switch ($id) {
 			case 0:
-				$global = Db::table('users')->orderBy('level','desc')->select('email')->get();
+				$global = Db::table('users')->orderBy('points','desc')->select('email')->get();
 				return $global;
 				break;
 			
 			case 1:
 			case 2:			
 			case 3:
-				$global = Db::table('users')->where('year', (string)$id)->orderBy('level','desc')->select('email')->get();
+				$global = Db::table('users')->where('year', (string)$id)->orderBy('points','desc')->select('email')->get();
 				return $global;
 				break;
 				
 			// global leaderboard	
 			default:
-				$global = DB::table('users')->orderBy('level','desc')->select('email')->get();
+				$global = DB::table('users')->orderBy('points','desc')->select('email')->get();
 				$board = [];
 				foreach($global as $x){
 					array_push($board, $x -> email);

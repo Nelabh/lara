@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use Views;
 use App\Models\User;
 use Input;
+use Session;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Validation\Validator;
 use Illuminate\Validation;
@@ -19,6 +20,7 @@ class UserController extends BaseController {
 
 		if(\Auth::attempt($user))
 		{
+			Session::put('user_name', $user['email']);
 			return Redirect::to('dashboard')->with('message','Successfully Logged In!');
 		}
 		else{
@@ -31,14 +33,15 @@ class UserController extends BaseController {
 		$validation=User::validate(Input::all());
 		if($validation->passes())
 		{
-			User::create(array(
+			$user = array(
 				'fname'=>Input::get('fname'),
 				'lname'=>Input::get('lname'),	
 				'year'=>Input::get('year'),
 				'email'=>Input::get('email'),
-				'password'=>\Hash::make(Input::get('password'))
+				'password'=>\Hash::make(Input::get('password')));
+			User::create();
 
-				));
+			Session::put('user_name', $user['email']);
 			return Redirect::to('dashboard')->with('message','Successfully Registered! Now you are logged in!');
 		}	
 		else{
@@ -50,6 +53,7 @@ class UserController extends BaseController {
 		if(\Auth::check())
 		{
 			\Auth::logout();
+			Session::forget('user_name');
 			return Redirect::to('/')->with('message','Successfully Logged Out!'); 
 		}
 		else

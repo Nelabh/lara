@@ -73,17 +73,8 @@
         @yield('content')
         <script src="{{URL::asset('https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')}}"></script>
         <script src="{{URL::asset('common/assets/js/vendor/jquery-1.11.1.min.js')}}"></script>
-        
         <script src="{{URL::asset('common/assets/js/bootstrap.js')}}"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src="{{URL::asset('//www.google-analytics.com/analytics.js')}}";
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>
     </body>
 </html>

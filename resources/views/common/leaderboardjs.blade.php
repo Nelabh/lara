@@ -1,19 +1,18 @@
+
+	
 <script type="text/javascript">
 	
 function load(yr){
-	if(window.XMLHttpRequest){
-		xmlhttp = new XMLHttpRequest();
-	} else {
-		xmlhttp = new ActiveXObject('Microsoft.XMLHTP');
-	}
 	var url = document.location.pathname.substring(0,document.location.pathname.lastIndexOf('/')+1);
-	xmlhttp.open('GET', url+ yr, true);
-	xmlhttp.onreadystatechange = function(){
-		if(xmlhttp.readyState == 4 && xmlhttp.status ==200){
-			$('#entry').html(xmlhttp.responseText);
-		}
-	}
-	xmlhttp.send();
+	$.get(
+		url + yr,
+		function (data){
+			var list = '';
+			for (i = 0; i < data.length; i++){
+				list +='<p>' + data[i].email + '</p>';
+			}
+			$('#entry').html(list);
+		});
 }
 
 $(document).ready(function(){
@@ -24,3 +23,4 @@ $(document).ready(function(){
 });
 
 </script type="text/javascript">
+
