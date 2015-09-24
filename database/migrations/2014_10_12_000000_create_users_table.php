@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password', 60);
             $table->integer('level');
             $table->integer('points');
+            $table->string('score_trail');
             $table->rememberToken();
             $table->timestamps();
         });
