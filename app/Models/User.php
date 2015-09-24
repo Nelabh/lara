@@ -12,10 +12,10 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 class User extends Basemodel implements AuthenticatableContract, AuthorizableContract,CanResetPasswordContract
 {
     use Authenticatable, Authorizable, CanResetPassword;
- protected $fillable = ['fname','lname','year', 'email', 'password'];
+ protected $fillable = ['fname','lname','year', 'email', 'password','points','level','score_trail'];
 public static $rules=array(
-'fname'=>'required',
-'lname'=>'required',
+'fname'=>'required|min:4|alpha_dash',
+'lname'=>'required|alpha_dash',
 'year'=>'required',
 'email'=>'required|unique:users',
 'password'=>'required|min:4|confirmed',

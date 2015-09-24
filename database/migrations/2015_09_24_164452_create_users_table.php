@@ -19,9 +19,9 @@ class CreateUsersTable extends Migration
             $table->integer('year');
             $table->string('email')->unique();
             $table->string('password', 60);
-            $table->integer('level');
-            $table->integer('points');
-            $table->string('score_trail');
+            $table->integer('level')->default(0);
+            $table->integer('points')->default(0);
+            $table->string('score_trail')->default('');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -35,5 +35,6 @@ class CreateUsersTable extends Migration
     public function down()
     {
         Schema::drop('users');
+        
     }
 }

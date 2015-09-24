@@ -24,7 +24,7 @@ class UserController extends BaseController {
 			return Redirect::to('dashboard')->with('message','Successfully Logged In!');
 		}
 		else{
-			return Redirect::to('login')->with('message','Your email/password combination is incorrect!')->withInput();;
+			return Redirect::to('login')->with('message','Your email/password combination is incorrect!')->withInput();
 
 		}
 	}
@@ -39,8 +39,9 @@ class UserController extends BaseController {
 				'year'=>Input::get('year'),
 				'email'=>Input::get('email'),
 				'password'=>\Hash::make(Input::get('password')));
-			User::create();
-
+			User::create($user);
+			$user_sign=User::whereemail(Input::get('email'))->first();
+			\Auth::login($user_sign);
 			Session::put('user_name', $user['email']);
 			return Redirect::to('dashboard')->with('message','Successfully Registered! Now you are logged in!');
 		}	
