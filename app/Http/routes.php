@@ -19,6 +19,8 @@ Route::get('logout',array('as'=>'logout','uses'=> 'UserController@logout'));
 Route::get('dashboard',array('as'=>'dashboard','uses'=> 'PagesController@dashboard'));
 Route::get('leaderboard/{id}', array('as'=>'leaderboard', 'uses'=>'PagesController@leaderboard'));
 Route::get('navigate/{lvl}', array('as'=>'nav', 'uses'=>'AnswersController@navigate'));
+//Route::get('rank',array('as'=>'rank','uses'=> 'AnswersController@globrank'));
+
 
 
 

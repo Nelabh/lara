@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use Views;
 use App\Models\User;
 use Input;
+use DB;
 use Session;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Validation\Validator;
@@ -21,6 +22,8 @@ class UserController extends BaseController {
 		if(\Auth::attempt($user))
 		{
 			Session::put('user_name', $user['email']);
+			$score = DB::table('users')->where('email', Session::get('user_name'))->pluck('points');
+			Session::put('pts', $score);
 			return Redirect::to('dashboard')->with('message','Successfully Logged In!');
 		}
 		else{
@@ -43,6 +46,9 @@ class UserController extends BaseController {
 			$user_sign=User::whereemail(Input::get('email'))->first();
 			\Auth::login($user_sign);
 			Session::put('user_name', $user['email']);
+			$score = DB::table('users')->where('email', Session::get('user_name'))->pluck('points');
+
+			Session::put('pts', $score);
 			return Redirect::to('dashboard')->with('message','Successfully Registered! Now you are logged in!');
 		}	
 		else{
@@ -55,6 +61,8 @@ class UserController extends BaseController {
 		{
 			\Auth::logout();
 			Session::forget('user_name');
+			Session::forget('pts');
+
 			return Redirect::to('/')->with('message','Successfully Logged Out!'); 
 		}
 		else

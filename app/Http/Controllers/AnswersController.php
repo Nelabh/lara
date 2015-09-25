@@ -2,9 +2,9 @@
 namespace App\Http\Controllers;
 use DB;
 use Input;
-use User;
 use Session;
 use Request;
+use App\Models\User;
 use Illuminate\Routing\Controller as BaseController;
 
 class AnswersController extends BaseController{
@@ -73,6 +73,14 @@ class AnswersController extends BaseController{
 			return $question;
 		}
 	}
+    public function globrank()
+    {
+        $user_name = Session::get('user_name');
+        $pts=DB::table('users')->where('email', $user_name)->pluck('points');
+        //$glorank=DB::table('users')->select(DB::raw('count(email)'))->where()
+        $glorank=DB::table('users')->where('points','>=',$pts)->count();
+        return $glorank;
+    }
 }
 
 ?>
