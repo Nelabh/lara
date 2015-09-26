@@ -1,14 +1,11 @@
-
-
-/* Common button styles */
 .button {
 	float: left;
 	min-width: 150px;
 	max-width: 250px;
-    display:block;
-    left:45px;
-    margin-top:30px;
-    width:100%;
+	display: block;
+	margin: 1em;
+    margin-left: 42px;
+    position: relative;
 	padding: 1em 2em;
 	border: none;
 	background: none;
@@ -26,23 +23,16 @@
 	vertical-align: middle;
 }
 
-
-/* Typography and Roundedness */
 .button--text-upper {
     font-family: 'Arvo', sans-serif;
 	letter-spacing: 2px;
 
 }
 
-
 .button--border-thick {
 	border: 2px solid #24292c;
 }
 
-/* Individual button styles */
-
-
-/* Wayra */
 .button--wayra {
 	overflow: hidden;
 	width: 100px;
