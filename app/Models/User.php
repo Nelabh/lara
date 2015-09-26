@@ -14,7 +14,7 @@ class User extends Basemodel implements AuthenticatableContract, AuthorizableCon
     use Authenticatable, Authorizable, CanResetPassword;
  protected $fillable = ['fname','lname','year', 'email', 'password','points','level','score_trail'];
 public static $rules=array(
-'fname'=>'required|min:4|alpha_dash',
+'fname'=>'required|min:2|alpha_dash',
 'lname'=>'required|alpha_dash',
 'year'=>'required',
 'email'=>'required|unique:users',

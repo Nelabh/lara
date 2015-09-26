@@ -5,6 +5,7 @@ use DB;
 use Illuminate\Routing\Controller as BaseController;
 use App\Models\User;
 use Input;
+use Session;
 use Illuminate\Validation\Validator;
 use Illuminate\Validation;
 use Illuminate\Support\Facades\Redirect;
@@ -44,14 +45,21 @@ class PagesController extends BaseController {
 		}
 			}
 	public function dashboard()
-	{
+	{	
+
 		if(!\Auth::check())
 		{
 			return Redirect::to('login')->with('message','You need to login first!'); 
 		}
 		else
 		{
-			$data = array('user' =>['name' => 'Abhay','level'=>'2' ,'globalRank' => '1' , 'question' => 'something...']);
+			$email = Session::get('user_name');
+			$name = DB::table('users')->where('email', $email)->pluck('fname');
+			$lvl = DB::table('users')->where('email', $email)->pluck('level');
+			$lname = DB::table('users')->where('email', $email)->pluck('lname');
+			//$globalRank = 
+			$question = DB::table('questions')->where('level', $lvl)->pluck('question');
+			$data = array('user' =>['name' => $name.' '.$lname,'level'=> $lvl ,'globalRank' => '1' , 'question' => $question]);
 			return \View::make('dashboard', $data);
 		}
 	}

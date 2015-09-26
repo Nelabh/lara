@@ -22,6 +22,7 @@ Route::get('navigate/{lvl}', array('as'=>'nav', 'uses'=>'AnswersController@navig
 
 
 
+
 Route::post('dashboard/check',array('before'=>'csrf', 'uses'=> 'AnswersController@check'));
 Route::post('log',array('before'=>'csrf', 'uses'=> 'UserController@login'));
 Route::post('sign',array('before'=>'csrf', 'uses'=> 'UserController@signup'));

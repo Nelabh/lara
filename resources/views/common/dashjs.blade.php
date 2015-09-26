@@ -9,11 +9,17 @@ function load(){
 			type: 'POST',
 			data: values,
 			success: function (data){
-				if (data != 'Hard Luck'){
-					$('#question').html(data);
+				if (data.status == '1'){
+					$('#question').html(data.ques);
+					$('#level').html('LEVEL - ' + (parseInt(lvl) + 1));
+
+					/* hide Textbox if already answered the question...;
+					*/
+
 				}else{
-					$('#status').html(data);
+					$('#status').html('Thats the wrong answer!!');
 				}
+				
 			}
 			});
 }
@@ -25,7 +31,10 @@ function navigate(ques){
 			type: 'GET',
 			data: values,
 			success: function (data){
-				$('#question').html(data);	
+				$('#question').html(data);
+				/* hide Textbox if already answered the question...;
+					
+				*/	
 			}
 			});
 }

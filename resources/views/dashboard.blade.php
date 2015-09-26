@@ -12,7 +12,7 @@
             </div>
         <div class="col-md-10 battleground">
             <h1 id = 'level'>LEVEL - {{ $user ['level'] }}</h1>
-            <p>{{ $user['question'] }}</p>
+            <p id = 'question'>{{ $user['question'] }}</p>
             
                 <input id = 'answer' type="text" name = '<?php echo  csrf_token(); ?>' placeholder="Try your luck here... ">
                 <button type= "submit" id='but' class="button button--wayra button--border-thick button--text-upper button--size-s">Submit</button>
