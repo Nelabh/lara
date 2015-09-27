@@ -11,11 +11,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
- <link rel="stylesheet" href="{{URL::asset('common/assets/css/bootstrap.css')}}">
-        <link rel="stylesheet" href="{{URL::asset('common/assets/css/main.css')}}">
-        <link rel="stylesheet" href="{{URL::asset('common/assets/css/font-awesome.min.css')}}">
-        <link rel="stylesheet" href="{{URL::asset('common/assets/css/Buttons/buttons.css')}}">
-        <link rel="stylesheet" href="{{URL::asset('common/assets/css/Buttons/normalize.css')}}">
+ <link rel="stylesheet" href="{{URL::asset('public/common/assets/css/bootstrap.css')}}">
+        <link rel="stylesheet" href="{{URL::asset('public/common/assets/css/main.css')}}">
+        <link rel="stylesheet" href="{{URL::asset('public/common/assets/css/font-awesome.min.css')}}">
+        <link rel="stylesheet" href="{{URL::asset('public/common/assets/css/Buttons/buttons.css')}}">
+        <link rel="stylesheet" href="{{URL::asset('public/common/assets/css/Buttons/normalize.css')}}">
       </head>
     <body>
         <!--[if lt IE 7]>
@@ -72,8 +72,8 @@
         </div>
         @yield('content')
         <script src="{{URL::asset('https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')}}"></script>
-        <script src="{{URL::asset('common/assets/js/vendor/jquery-1.11.1.min.js')}}"></script>
-        <script src="{{URL::asset('common/assets/js/bootstrap.js')}}"></script>
+        <script src="{{URL::asset('public/common/assets/js/vendor/jquery-1.11.1.min.js')}}"></script>
+        <script src="{{URL::asset('public/common/assets/js/bootstrap.js')}}"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     </body>

@@ -25,7 +25,7 @@ function logclick()
                 
                  <div class="col-md-6"><button type= "button" id="sign" class="button button--wayra button--border-thick button--text-upper button--size-s" onclick="return signclick()">Sign Up</button>   </div>  
                 <div class="col-md-12"><span class="image">
-            <img src="common/assets/img/boy.PNG">
+            <img src="public/common/assets/img/boy.PNG">
             </span>
                 </div>
             </div>
