@@ -18,13 +18,13 @@ Route::get('signup',array('as'=>'signup','uses'=> 'PagesController@signup'));
 Route::get('logout',array('as'=>'logout','uses'=> 'UserController@logout'));
 Route::get('dashboard',array('as'=>'dashboard','uses'=> 'PagesController@dashboard'));
 Route::get('leaderboard/{id}', array('as'=>'leaderboard', 'uses'=>'PagesController@leaderboard'));
-Route::get('navigate/{lvl}', array('as'=>'nav', 'uses'=>'AnswersController@navigate'));
-//Route::get('rank',array('as'=>'rank','uses'=> 'AnswersController@globrank'));
+Route::get('navigate/{lvl}', array('as'=>'nav', 'uses'=>'DashController@navigate'));
+//Route::get('rank',array('as'=>'rank','uses'=> 'DashController@globrank'));
 
 
 
 
 
-Route::post('dashboard/check',array('before'=>'csrf', 'uses'=> 'AnswersController@check'));
+Route::post('dashboard/check',array('before'=>'csrf', 'uses'=> 'DashController@check'));
 Route::post('log',array('before'=>'csrf', 'uses'=> 'UserController@login'));
 Route::post('sign',array('before'=>'csrf', 'uses'=> 'UserController@signup'));

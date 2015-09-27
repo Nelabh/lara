@@ -7,7 +7,7 @@ use Request;
 use App\Models\User;
 use Illuminate\Routing\Controller as BaseController;
 
-class AnswersController extends BaseController{
+class DashController extends BaseController{
 	public function check(){
 		if (Request::ajax()) {
             $data = Input::all();
@@ -64,16 +64,18 @@ class AnswersController extends BaseController{
 		$user_name = Session::get('user_name');
 		$curr_user_level = DB::table('users')->where('email', $user_name)->pluck('level');
 		if($lvl <= $curr_user_level){
-			$question = DB::table('question')->where('level', $lvl);
+			$question = DB::table('questions')->where('level', $lvl)->pluck('question');
 			return $question;
 		}
 	}
+
+
     public function globrank()
     {
         $user_name = Session::get('user_name');
-        $pts=DB::table('users')->where('email', $user_name)->pluck('points');
+        $pts = DB::table('users')->where('email', $user_name)->pluck('points');
         //$glorank=DB::table('users')->select(DB::raw('count(email)'))->where()
-        $glorank=DB::table('users')->where('points','>=',$pts)->count();
+        $glorank = DB::table('users')->where('points','>=',$pts)->count();
         return $glorank;
     }
 }
