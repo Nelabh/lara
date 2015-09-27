@@ -246,7 +246,7 @@ th {
     background: #fff !important;
   }
   .navbar {
-    display: none;
+    display: none; 
   }
   .btn > .caret,
   .dropup > .btn > .caret {
@@ -298,12 +298,12 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #ff9900;
+  color: #24292c;
   text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #b36b00;
+  color: #101010;
   text-decoration: none;
 }
 a:focus {

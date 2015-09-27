@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+ <html class="no-js">
     <head>
    <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
- <link rel="stylesheet" href="{{URL::asset('public/common/assets/css/bootstrap.css')}}">
+        <link rel="stylesheet" href="{{URL::asset('public/common/assets/css/animate.css')}}">
+        <link rel="stylesheet" href="{{URL::asset('public/common/assets/css/bootstrap.css')}}">
         <link rel="stylesheet" href="{{URL::asset('public/common/assets/css/main.css')}}">
         <link rel="stylesheet" href="{{URL::asset('public/common/assets/css/font-awesome.min.css')}}">
         <link rel="stylesheet" href="{{URL::asset('public/common/assets/css/Buttons/buttons.css')}}">
@@ -27,12 +25,13 @@
         <header>
           <div class="container-fluid">
                 <div class="row">
-                    <!-- nav bar starts -->
-                    <div class="col-sm-1"></div>
-                    <div class="col-sm-10">
+                   
+                    <div class="col-md-1 col-xs-1">
+                        <a href="{{URL::asset('/')}}"><img src="{{URL::asset('public/common/assets/img/tt.png')}}" height="80px" ></a></div>
+                    <div class="col-md-11 col-xs-11">
                         <nav class="navbar navbar-default ">
                             <div class="container-fluid">
-                                <!-- Brand and toggle get grouped for better mobile display -->
+                              
                                 <div class="navbar-header">
                                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                                         <span class="sr-only">Toggle navigation</span>
@@ -65,11 +64,7 @@
                 </div>    
             </div>
         </header>
-        <div id="message">
-            @if(Session::has('message'))
-            <p id="msg">{{Session::get('message')}}</p>
-            @endif
-        </div>
+        
         @yield('content')
         <script src="{{URL::asset('https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')}}"></script>
         <script src="{{URL::asset('public/common/assets/js/vendor/jquery-1.11.1.min.js')}}"></script>
