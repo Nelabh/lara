@@ -21,13 +21,7 @@ function logclick()
                 <div class="col-md-12">
                     <h4>One board, Two roads !</h4>
                 </div>
-                @if(Session::has('message'))
-    <div id="error">
-           
-            <p id="msg">{{Session::get('message')}}</p>
-           
-        </div>
-         @endif
+              
  
                 <div class="col-md-offset-4 col-md-2 col-xs-12">  <button type="button"  id="log" class="button button--wayra button--border-thick button--text-upper button--size-s" onclick="return logclick()">Login</button></div>
                 

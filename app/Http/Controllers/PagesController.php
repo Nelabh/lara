@@ -22,6 +22,10 @@ class PagesController extends BaseController {
 			return \View::make('index');
 		}
 	}
+	public function rules()
+	{
+		return \View::make('rules');
+	}
 	public function signup()
 	{
 		if(\Auth::check())
@@ -57,9 +61,10 @@ class PagesController extends BaseController {
 			$name = DB::table('users')->where('email', $email)->pluck('fname');
 			$lvl = DB::table('users')->where('email', $email)->pluck('level');
 			$lname = DB::table('users')->where('email', $email)->pluck('lname');
-			//$globalRank = 
+			$pts = DB::table('users')->where('email',$email)->pluck('points');
+			$glorank = DB::table('users')->where('points','>=',$pts)->count();
 			$question = DB::table('questions')->where('level', $lvl)->pluck('question');
-			$data = array('user' =>['name' => $name.' '.$lname,'level'=> $lvl ,'globalRank' => '1' , 'question' => $question]);
+			$data = array('user' =>['name' => $name.' '.$lname,'level'=> $lvl ,'globalRank' => $glorank , 'question' => $question , 'points'=> $pts ]);
 			return \View::make('dashboard', $data);
 		}
 	}

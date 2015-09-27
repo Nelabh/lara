@@ -15,6 +15,8 @@
 Route::get('/', array('as'=>'home','uses'=>'PagesController@home'));
 Route::get('login', array('as'=>'login','uses'=>'PagesController@login'));
 Route::get('signup',array('as'=>'signup','uses'=> 'PagesController@signup'));
+Route::get('rules', array('as'=>'rules','uses'=>'PagesController@rules'));
+
 Route::get('logout',array('as'=>'logout','uses'=> 'UserController@logout'));
 Route::get('dashboard',array('as'=>'dashboard','uses'=> 'PagesController@dashboard'));
 Route::get('leaderboard/{id}', array('as'=>'leaderboard', 'uses'=>'PagesController@leaderboard'));

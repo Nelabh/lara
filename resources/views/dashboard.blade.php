@@ -3,18 +3,12 @@
 
 @section('content')
   <div class="container-fluid background-3" >
- @if(Session::has('message'))
-    <div id="error">
-           
-            <p id="msg">{{Session::get('message')}}</p>
-           
-        </div>
-         @endif
+
         <div class="row">
         <div class="col-md-2 aside">
             <h1 id="dashboard">DASHBOARD</h1>
             <h2 id="points">Points</h2>
-            <div class="circle">50</div>
+            <div class="circle">{{ $user['points'] }}</div>
             <h1>{{ $user['name'] }}</h1>
             <h2>Global Rank : {{ $user['globalRank'] }}</h2>
             </div>
@@ -26,6 +20,7 @@
                 </div>
         <div class="row">
             <div class="col-md-offset-4 col-md-4 question-container">
+                 
             
             <p id = 'question'>{{ $user['question'] }}</p>
             </div>
