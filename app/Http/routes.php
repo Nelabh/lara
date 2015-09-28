@@ -20,7 +20,8 @@ Route::get('rules', array('as'=>'rules','uses'=>'PagesController@rules'));
 Route::get('logout',array('as'=>'logout','uses'=> 'UserController@logout'));
 Route::get('dashboard',array('as'=>'dashboard','uses'=> 'PagesController@dashboard'));
 Route::get('leaderboard/{id}', array('as'=>'leaderboard', 'uses'=>'PagesController@leaderboard'));
-Route::get('navigate/{lvl}', array('as'=>'nav', 'uses'=>'DashController@navigate'));
+Route::get('leaderboard', array('as'=>'leaderboard', 'uses'=>'PagesController@leader'));
+Route::get('dashboard/navigate/{lvl}', array('as'=>'nav', 'uses'=>'DashController@navigate'));
 //Route::get('rank',array('as'=>'rank','uses'=> 'DashController@globrank'));
 
 

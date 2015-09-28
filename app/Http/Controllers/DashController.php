@@ -16,42 +16,63 @@ class DashController extends BaseController{
             $curr_user_level = DB::table('users')->where('email', $user_name)->pluck('level');
             $curr_level = $data['level'];
             if($curr_level <= $curr_user_level){
-				
-            	/*
-                level of question to be started from 0...
-            	level 0 questio will be a dummy question and the user wuld not be awarded any points for answering it....
-                */
+
 				$score_trail = DB::table('users')->where('email', $user_name)->pluck('score_trail');
 				
             	$score = DB::table('users')->where('email', $user_name)->pluck('points');
                 $ans_a = DB::table('questions')->where('level', $curr_level)->pluck('a');
                 $ans_b = DB::table('questions')->where('level', $curr_level)->pluck('b');
+
                 if($fuckinans == $ans_a){
-                	
-                	$score_trail = substr($score_trail, 0, $curr_level) . '1' ;
-                	DB::table('users')->where('email', $user_name)->update(['score_trail' => $score_trail]);
-					$score = $score + 5;
-                    $question = DB::table('questions')->where('level', ($curr_user_level + 1))->pluck('question');
-                    DB::table('users')->where('email', $user_name)->increment('points' , 5);
-                    DB::table('users')->where('email', $user_name)->increment('level' , 1);
                     
-                    return ['status' => '1' , 'ques' => $question];
+                    if(substr($score_trail, $curr_level, 1) == '0'){   
+                    	$score_trail = substr($score_trail, 0, $curr_level) . '1' ;
+                    	DB::table('users')->where('email', $user_name)->update(['score_trail' => $score_trail]);
+    					$score = $score + 5;
+                        $question = DB::table('questions')->where('level', ($curr_user_level + 1))->pluck('question');
+                        DB::table('users')->where('email', $user_name)->increment('points' , 5);
+                        DB::table('users')->where('email', $user_name)->increment('level' , 1);
+                        $glorank = DB::table('users')->where('points','>=',$score)->count();
+                        return ['status' => '1' , 'ques' => $question, 'score' => $score, 'rank' => $glorank, 'scrtrl'=>$score_trail];
+                    }else if(substr($score_trail, $curr_level, 1) == '1'){
+                        $glorank = DB::table('users')->where('points','>=',$score)->count();
+                        return ['status' => '0','rank' => $glorank ,"message" => 'You have already tried this answer!', 'scrtrl'=>$score_trail];
+                    }else{
+
+                    }                    
+                    
 
                 }else if($fuckinans == $ans_b){
-                	if($curr_level < $curr_user_level)
-                		$score_trail = substr($score_trail, 0, $curr_level) . '2' . substr($score_trail, $curr_level+1);
-                	else
-                		$score_trail = substr($score_trail, 0, $curr_level) . '2' ;
-                	DB::table('users')->where('email', $user_name)->update(['score_trail' => $score_trail]);
-                	
-                    $score = $score + 10;
-                    $question = DB::table('questions')->where('level', ($curr_user_level + 1))->pluck('question');
-                	DB::table('users')->where('email', $user_name)->increment('points' , 10);
-                	DB::table('users')->where('email', $user_name)->increment('level' , 1);
-                    return ['status' => '1' , 'ques' => $question];
+                    if(substr($score_trail, $curr_level, 1) == '0'){
+                    	if($curr_level < $curr_user_level)
+                    		$score_trail = substr($score_trail, 0, $curr_level) . '2' . substr($score_trail, $curr_level+1);
+                    	else
+                    		$score_trail = substr($score_trail, 0, $curr_level) . '2' ;
+                    	DB::table('users')->where('email', $user_name)->update(['score_trail' => $score_trail]);
+                    	
+                        $score = $score + 10;
+                        $question = DB::table('questions')->where('level', ($curr_user_level + 1))->pluck('question');
+                    	DB::table('users')->where('email', $user_name)->increment('points' , 10);
+                    	DB::table('users')->where('email', $user_name)->increment('level' , 1);
+                        $glorank = DB::table('users')->where('points','>=',$score)->count();
+                        return ['status' => '1' , 'ques' => $question, 'score' => $score, 'rank' => $glorank, 'scrtrl'=>$score_trail];
+                    }else if(substr($score_trail, $curr_level, 1) == '1'){
+                        if($curr_level < $curr_user_level)
+                            $score_trail = substr($score_trail, 0, $curr_level) . '2' . substr($score_trail, $curr_level+1);
+                        else
+                            $score_trail = substr($score_trail, 0, $curr_level) . '2' ;
+                        DB::table('users')->where('email', $user_name)->update(['score_trail' => $score_trail]);
+                        
+                        $score = $score + 5;
+                        $question = DB::table('questions')->where('level', ($curr_user_level + 1))->pluck('question');
+                        DB::table('users')->where('email', $user_name)->increment('points' , 5);
+                        $glorank = DB::table('users')->where('points','>=',$score)->count();
+                        return ['status' => '1' , 'ques' => $question, 'score' => $score, 'rank' => $glorank, 'scrtrl'=>$score_trail];
+                    }
                 	
                 }else{
-    				return '0';
+                    $glorank = DB::table('users')->where('points','>=',$score)->count();
+    				return ['status' => '0', 'rank' => $glorank];
                 }
             }
 
@@ -65,7 +86,8 @@ class DashController extends BaseController{
 		$curr_user_level = DB::table('users')->where('email', $user_name)->pluck('level');
 		if($lvl <= $curr_user_level){
 			$question = DB::table('questions')->where('level', $lvl)->pluck('question');
-			return $question;
+            $trail = DB::table('users')->where('email', $user_name)->pluck('score_trail');
+			return ['ques'=>$question, 'trail'=> $trail];
 		}
 	}
 
@@ -74,7 +96,6 @@ class DashController extends BaseController{
     {
         $user_name = Session::get('user_name');
         $pts = DB::table('users')->where('email', $user_name)->pluck('points');
-        //$glorank=DB::table('users')->select(DB::raw('count(email)'))->where()
         $glorank = DB::table('users')->where('points','>=',$pts)->count();
         return $glorank;
     }

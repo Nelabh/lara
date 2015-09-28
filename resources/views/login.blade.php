@@ -20,7 +20,7 @@
                     {!!Form::open(array('url'=>'log', 'class'=>'signup' ))!!}
                     
                          {!!Form::token()!!}
-                                        @if(Session::has('message'))
+                                           @if(Session::has('message'))
                <div class="signup-form" id="error">
            
             <p id="msg">{{Session::get('message')}}</p>

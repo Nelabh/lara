@@ -16,7 +16,7 @@ class PagesController extends BaseController {
 	{
 		if(\Auth::check())
 		{
-			return \View::make('dashboard');	
+			return Redirect::to('dashboard');	
 		}
 	else{
 			return \View::make('index');
@@ -76,26 +76,22 @@ class PagesController extends BaseController {
 	public function leaderboard($id){
 		switch ($id) {
 			case 0:
-				$global = Db::table('users')->orderBy('points','desc')->select('email')->get();
+				$global = Db::table('users')->orderBy('points','desc')->select('fname','lname')->get();
 				return $global;
 				break;
 			
 			case 1:
 			case 2:			
 			case 3:
-				$global = Db::table('users')->where('year', (string)$id)->orderBy('points','desc')->select('email')->get();
+				$global = Db::table('users')->where('year', (string)$id)->orderBy('points','desc')->select('fname','lname')->get();
 				return $global;
 				break;
-				
-			// global leaderboard	
-			default:
-				$global = DB::table('users')->orderBy('points','desc')->select('email')->get();
-				$board = [];
-				foreach($global as $x){
-					array_push($board, $x -> email);
-				}
-				return \View::make('leaderboard', array('data'=>['load' => 'true', 'emails' => $board]));
 		}	
+
+	}
+	public function leader()
+	{	$data = DB::table('users')->orderBy('points','desc')->select('fname','lname')->take(10)->get();
+		return \View::make('leaderboard', array('data' => $data));
 
 	}
 } 
