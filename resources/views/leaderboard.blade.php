@@ -15,11 +15,25 @@
                     </ul>
               </div>
                 <div class="col-md-offset-4 col-md-4 leaderboard">
-                <ul id ="entry">
+                <!-- <ul id ="entry">
                     @foreach ($data as $users)
                         <li>{{ $users-> fname ." ". $users-> lname }}</li>
                     @endforeach
-                </ul>
+                </ul> -->
+
+                <table id= 'table'>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Score</th>
+
+                    @for ($i = 0; $i < count($data); $i++)
+                        <tr>
+                            <td>{{ ($i+1) }}</td>
+                            <td>{{ $data[$i]-> fname ." ". $data[$i]-> lname }}</td>
+                            <td>{{ $data[$i]-> points }}</td>
+                        </tr>
+                    @endfor
+                </table>
                 </div>
             </div>
         </div>

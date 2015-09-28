@@ -20,8 +20,8 @@ class DashController extends BaseController{
 				$score_trail = DB::table('users')->where('email', $user_name)->pluck('score_trail');
 				
             	$score = DB::table('users')->where('email', $user_name)->pluck('points');
-                $ans_a = DB::table('questions')->where('level', $curr_level)->pluck('a');
-                $ans_b = DB::table('questions')->where('level', $curr_level)->pluck('b');
+                $ans_b = DB::table('questions')->where('level', $curr_level)->pluck('a');
+                $ans_a = DB::table('questions')->where('level', $curr_level)->pluck('b');
 
                 if($fuckinans == $ans_a){
                     

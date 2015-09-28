@@ -53,7 +53,7 @@
                                         <li><a href="{{URL::asset('logout')}}">Log Out</a></li>
                                         <li><a href="{{URL::asset('rules')}}">Rules</a></li>
                                         @endif
-                                        <li><a href="{{URL::asset('#')}}">Leaderboard</a></li>
+                                        <li><a href="{{URL::asset('leaderboard')}}">Leaderboard</a></li>
                                         <li><a href="{{URL::asset('#')}}">Forum</a></li>
                                     </ul>
                                 </div><!-- /.navbar-collapse -->

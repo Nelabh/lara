@@ -5,13 +5,13 @@ function load(yr){
 	$.get(
 		url + yr,
 		function (data){
-			var list = '';
+			var list = '<th>Rank</th> <th>Name</th> <th>Score</th>';
 			for (i = 0; i < data.length; i++){
-				list +='<li>' + data[i].fname +' '+ data[i].lname + '</li>';
+				list += "<tr><td>" + (i+1) +"</td> <td>"+ data[i].fname + " " + data[i].lname + "</td> <td>" + data[i].points+"</td> </tr>";
 			}
 
-			console.log(list);
-			$('#entry').html(list);
+			//console.log(list);
+			document.getElementById('table').innerHTML = list;
 		});
 }
 
