@@ -55,8 +55,8 @@ return [
         'mysql' => [
             'driver'    => 'mysql',
             'host'      => env('DB_HOST', 'localhost'),
-            'database'  => env('DB_DATABASE', 'trek'),
-            'username'  => env('DB_USERNAME', 'ni22le'),
+            'database'  => env('DB_DATABASE', 'trek2'),
+            'username'  => env('DB_USERNAME', 'zealicon_dbman'),
             'password'  => env('DB_PASSWORD', 'ni22le'),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',

@@ -76,23 +76,31 @@ class PagesController extends BaseController {
 	public function leaderboard($id){
 		switch ($id) {
 			case 0:
-				$global = Db::table('users')->orderBy('points','desc')->select('fname','lname')->get();
+				$global = Db::table('users')->orderBy('points','desc')->select('fname','lname','points')->take(10)->get();
 				return $global;
 				break;
 			
 			case 1:
 			case 2:			
 			case 3:
-				$global = Db::table('users')->where('year', (string)$id)->orderBy('points','desc')->select('fname','lname')->get();
+				$global = Db::table('users')->where('year', (string)$id)->orderBy('points','desc')->select('fname','lname','points')->take(10)->get();
 				return $global;
 				break;
 		}	
 
 	}
 	public function leader()
-	{	$data = DB::table('users')->orderBy('points','desc')->select('fname','lname')->take(10)->get();
+	{	$data = DB::table('users')->orderBy('points','desc')->select('fname','lname','points')->take(10)->get();
 		return \View::make('leaderboard', array('data' => $data));
 
 	}
+	
+	public function test(){
+		return \View::make('xaam');
+	}
+	 public function wait()
+	 {
+	 return \View::make('wait');
+	 }
 } 
 ?>

@@ -23,10 +23,11 @@ Route::get('leaderboard/{id}', array('as'=>'leaderboard', 'uses'=>'PagesControll
 Route::get('leaderboard', array('as'=>'leaderboard', 'uses'=>'PagesController@leader'));
 Route::get('dashboard/navigate/{lvl}', array('as'=>'nav', 'uses'=>'DashController@navigate'));
 //Route::get('rank',array('as'=>'rank','uses'=> 'DashController@globrank'));
+Route::get('wait', array('as'=>'wait', 'uses'=>'DashController@wait'));
+Route::get('next', array('as'=>'next', 'uses'=>'DashController@next'));
 
 
-
-
+Route::get('xaam', array('uses'=>'PagesController@test'));
 
 Route::post('dashboard/check',array('before'=>'csrf', 'uses'=> 'DashController@check'));
 Route::post('log',array('before'=>'csrf', 'uses'=> 'UserController@login'));

@@ -8,12 +8,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel="stylesheet" href="{{URL::asset('public/common/assets/css/animate.css')}}">
-        <link rel="stylesheet" href="{{URL::asset('public/common/assets/css/bootstrap.css')}}">
-        <link rel="stylesheet" href="{{URL::asset('public/common/assets/css/main.css')}}">
-        <link rel="stylesheet" href="{{URL::asset('public/common/assets/css/font-awesome.min.css')}}">
-        <link rel="stylesheet" href="{{URL::asset('public/common/assets/css/Buttons/buttons.css')}}">
-        <link rel="stylesheet" href="{{URL::asset('public/common/assets/css/Buttons/normalize.css')}}">
+        <link rel="icon" href="{{URL::asset('icon.ico')}}" type="image/gif" sizes="16x16">
+
+        <link rel="stylesheet" href="{{URL::asset('common/assets/css/animate.css')}}">
+        <link rel="stylesheet" href="{{URL::asset('common/assets/css/bootstrap.css')}}">
+        <link rel="stylesheet" href="{{URL::asset('common/assets/css/main.css')}}">
+        <link rel="stylesheet" href="{{URL::asset('common/assets/css/font-awesome.min.css')}}">
+        <link rel="stylesheet" href="{{URL::asset('common/assets/css/Buttons/buttons.css')}}">
+        <link rel="stylesheet" href="{{URL::asset('common/assets/css/Buttons/normalize.css')}}">
       </head>
     <body>
         <!--[if lt IE 7]>
@@ -27,7 +29,7 @@
                 <div class="row">
                    
                     <div class="col-md-1 col-xs-1">
-                        <a href="{{URL::asset('/')}}"><img src="{{URL::asset('public/common/assets/img/tt.png')}}" height="80px" ></a></div>
+                        <a href="{{URL::asset('/')}}"><img src="{{URL::asset('common/assets/img/tt.png')}}" height="80px" ></a></div>
                     <div class="col-md-11 col-xs-11">
                         <nav class="navbar navbar-default ">
                             <div class="container-fluid">
@@ -53,8 +55,8 @@
                                         <li><a href="{{URL::asset('logout')}}">Log Out</a></li>
                                         <li><a href="{{URL::asset('rules')}}">Rules</a></li>
                                         @endif
-                                        <li><a href="{{URL::asset('#')}}">Leaderboard</a></li>
-                                        <li><a href="{{URL::asset('#')}}">Forum</a></li>
+                                        <li><a href="{{URL::asset('leaderboard')}}">Leaderboard</a></li>
+                                        <li><a href="{{URL::asset('https://www.facebook.com/nibblecomputersociety')}}" target="_blank">Forum</a></li>
                                     </ul>
                                 </div><!-- /.navbar-collapse -->
                             </div><!-- /.container-fluid -->
@@ -67,8 +69,8 @@
         
         @yield('content')
         <script src="{{URL::asset('https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')}}"></script>
-        <script src="{{URL::asset('public/common/assets/js/vendor/jquery-1.11.1.min.js')}}"></script>
-        <script src="{{URL::asset('public/common/assets/js/bootstrap.js')}}"></script>
+        <script src="{{URL::asset('common/assets/js/vendor/jquery-1.11.1.min.js')}}"></script>
+        <script src="{{URL::asset('common/assets/js/bootstrap.js')}}"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     </body>

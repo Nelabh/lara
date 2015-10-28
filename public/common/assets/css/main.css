@@ -103,9 +103,6 @@ ul{
 
 
 
-
-
-
 @media(min-width:960px){
 
     .content h1{
@@ -133,6 +130,9 @@ ul{
     position: fixed;
     width: 100%;
 }
+
+
+
 
     }
 
@@ -443,6 +443,8 @@ font-weight: 700;
         padding-bottom: 10px;
     }
     .battleground input{
+        text-align: center;
+        margin: auto;
         width: 30%;
         margin-bottom:25px
     }
@@ -482,6 +484,15 @@ font-weight: 700;
         margin-left: 0px;
     
     }
+
+
+    .about-background{
+        background: url(../img/index.jpg) no-repeat center fixed;
+    background-size:cover;
+    min-height: 100%;
+    position:absolute;
+    width: 100%;
+    }
     
     
 }
@@ -505,9 +516,37 @@ font-weight: 700;
         padding: 8px;
         list-style-type: decimal;
     }
+    
+    
+ th{
+ padding:20px;
+ text-align:center;
+ font-family:'Arvo', sans-serif;
+ }   
+    
+ td{
+ padding:7px;
+ text-align:center;
+ font-family:'Arvo', sans-serif;}   
+ 
+ #table{
+ margin-left:40px;
+ }
+    
 }
 
-
+ th{
+ padding:20px;
+ text-align:center;
+ }   
+    
+ td{
+ padding:7px;
+ text-align:center;}   
+ 
+ #table{
+ margin-left:40px;
+ }
 .comingsoon h1{
     font-size: 2em;
     color: #24292c;

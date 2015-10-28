@@ -13,29 +13,48 @@ $(document).ready(function(){
 			data: values,
 			success: function (data){
 				if (data.status == '1'){
+					if(data.ques == null){
+					
+					console.log('sadsa');
+						$('#question').html('You did great..!!');
+					$('#level').html('Trek-Break');
+					$('#points').html(data.score);
+					$('#msg').html('The trek will resume in a few minutes...');
+					$('#rank').html('Global Rank : ' + data.rank);
+					$('#msg').css('color','black');
+					$('#answer').hide();
+					$('#but').hide();
+					
+					}else{
+					if(data.scrtrl.charAt((parseInt(lvl) + 1)) == 2){
+						data.message = 'Already bragged maximum points for this question';
+						$('#answer').hide();
+					$('#but').hide();
+					}
 					$('#question').html(data.ques);
 					$('#level').html('LEVEL - ' + (parseInt(lvl) + 1));
 					$('#points').html(data.score);
 					document.getElementById('answer').value='';
 					$('#msg').css('color','green');
-					$('#msg').html('Correct Answer!!');
+					$('#msg').html(data.message);
 					$('#rank').html('Global Rank : ' + data.rank);
 					var x = document.getElementById('msg');
-					/*var list = "";
-					console.log(data.scrtrl);
+					var list = "";
 					for (var i = 0;i<=data.scrtrl.length; i++) {
 						list = list + "<li><a class = \'navigate\' x=\'"+ i +"\'>LEVEL - " + i+"</a></li>";
-					}*/
-					
+					}
+					$('#list').html(list);
 					
 					setTimeout(function(){
 						x.innerHTML = '';
 					},3000);
+					}
 					/* hide Textbox if already answered the question...;
 					*/
-				}else{
+				}
+				else{
 					$('#msg').css('color','red');
-					$('#msg').html('Thats the wrong answer!!');
+					$('#msg').html(data.message);
 					$('#rank').html('Global Rank : ' + data.rank);
 					var x = document.getElementById('msg');
 					setTimeout(function(){
@@ -56,8 +75,16 @@ function navigate(ques){
 				$('#question').html(data.ques);
 				$('#level').html('LEVEL - ' +ques);
 				document.getElementById('answer').value='';
+				console.log(data['trail']);
 				if(data['trail'].charAt(ques) == 2){
-					//hide INPUT BOX
+					$('#msg').html('Already bragged maximum points for this question');
+					$('#answer').hide();
+					$('#but').hide();
+					
+				}else{
+				$('#msg').html('');
+				$('#answer').show();
+					$('#but').show();
 				}
 
 			}
@@ -68,11 +95,17 @@ function navigate(ques){
 		load();
 	});
 
+/*
 	$('.navigate').click(function(){
 		var q_no = $(this).attr('x');
 		console.log(q_no);
 		navigate(q_no); 
-	});
+	}); */
+	
+	$(document).on('click', '.navigate', function(){ 
+     		var q_no = $(this).attr('x');
+		navigate(q_no); 
+ 	});
 /*
 	document.getElementById()*/
 });
