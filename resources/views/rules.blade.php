@@ -12,7 +12,11 @@
                     </h3>
                     <ul class="rules">
                     <li>
+<<<<<<< HEAD
                         This is an ONLINE event which will be live from 28 Sept 2015.
+=======
+                        This is an ONLINE event which will be live for two days (28 Sept 2015 to 30 Sept 2015).
+>>>>>>> 18178189773ef8e03b14bcdf69ab318d95034a9c
                         </li>
                         <li>
                         Each question will bring you closer to your destination.

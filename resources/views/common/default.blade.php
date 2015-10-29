@@ -56,7 +56,11 @@
                                         <li><a href="{{URL::asset('rules')}}">Rules</a></li>
                                         @endif
                                         <li><a href="{{URL::asset('leaderboard')}}">Leaderboard</a></li>
+<<<<<<< HEAD
                                         <li><a href="{{URL::asset('https://www.facebook.com/nibblecomputersociety')}}" target="_blank">Forum</a></li>
+=======
+                                        <li><a href="{{URL::asset('#')}}">Forum</a></li>
+>>>>>>> 18178189773ef8e03b14bcdf69ab318d95034a9c
                                     </ul>
                                 </div><!-- /.navbar-collapse -->
                             </div><!-- /.container-fluid -->

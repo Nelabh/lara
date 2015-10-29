@@ -34,6 +34,7 @@ class DashController extends BaseController{
                                 $message = 'You have already given this answer... Try something new!';
                                 break;
 
+<<<<<<< HEAD
                             default :
                                 $message = 'Did you really think it would work?!!';
                                 break;
@@ -48,6 +49,13 @@ class DashController extends BaseController{
                                 DB::table('users')->where('email', $user_name)->update(['score_trail' => $score_trail]);
                                 $question = DB::table('questions')->where('level', ($curr_level + 1))->pluck('question');
                                 break;
+=======
+				$score_trail = DB::table('users')->where('email', $user_name)->pluck('score_trail');
+				
+            	$score = DB::table('users')->where('email', $user_name)->pluck('points');
+                $ans_b = DB::table('questions')->where('level', $curr_level)->pluck('a');
+                $ans_a = DB::table('questions')->where('level', $curr_level)->pluck('b');
+>>>>>>> 18178189773ef8e03b14bcdf69ab318d95034a9c
 
                             case '2':
                                 $message = 'You have already bragged the max points for this question';
